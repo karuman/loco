@@ -7,7 +7,6 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./kairan.page.scss'],
 })
 export class KairanPage implements OnInit {
-  @Input() public id: string =""; // *a
 
   click_mode =false;
   prev_card :any = null;
