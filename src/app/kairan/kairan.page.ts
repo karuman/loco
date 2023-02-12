@@ -19,12 +19,8 @@ export class KairanPage implements OnInit {
     },
   }
   
-  img_url: any = '1ev1vuvLk2hA6c2fZI55aXUo9g5EICv4v';
   img_url_list: any[] = [];
   
-
-  
-
   constructor() {
     this.img_url_list.push('1SivTDEtuWwkqLEvZxCXTXtisR6tKmIrA');
     this.img_url_list.push('1ev1vuvLk2hA6c2fZI55aXUo9g5EICv4v')
