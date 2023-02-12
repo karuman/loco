@@ -1,0 +1,58 @@
+html {
+    touch-action: manipulation;
+  }
+
+#container {
+    text-align: center;
+  
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+  #container strong {
+    font-size: 20px;
+    line-height: 26px;
+  }
+  
+  #container p {
+    font-size: 16px;
+    line-height: 22px;
+  
+    color: #8c8c8c;
+  
+    margin: 0;
+  }
+  
+  #container a {
+    text-decoration: none;
+  }
+  
+  .preview-slides {
+    margin-top: 20%;
+    background: #e6e6e6;
+  
+    img {
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+  }
+  
+  .image-slide,
+  .image-card {
+      overflow: visible;
+  }
+  
+  .image-card {
+      z-index: 9;
+  }
+  
+  .backdrop {
+      height: 200%;
+      width: 100%;
+      background: black;
+      position: absolute;
+      z-index: 10;
+  }

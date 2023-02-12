@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="kairan-list"></ion-back-button>
+    </ion-buttons>   
+    <ion-title>回覧板</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngFor="let img of img_url_list" class="image-card" #card>
+    <ion-slides class="image-slide" [options]="sliderZoomOpts" #zoomslides>
+        <ion-slide>
+            <div class="swiper-zoom-container" (click)="clickImg(card)">
+              <img src="http://drive.google.com/uc?export=view&id={{img}}">
+            </div>
+        </ion-slide>
+    </ion-slides>
+</ion-card>
+</ion-content>
+

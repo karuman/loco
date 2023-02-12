@@ -1,17 +1,30 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 1
+      自治会
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
+<ion-content [fullscreen]="true" >
+  <ion-header collapse="condense" *ngIf="mobile_a">
     <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
+      <ion-title size="large">自治会</ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+  <ion-img style="width:100%" src="assets/img/jichikaikan_yoko.jpg" alt="" *ngIf="!mobile_a"></ion-img>
+  <ion-img style="width:100%" src="assets/img/jichikaikan.jpg" alt="" *ngIf="mobile_a"></ion-img>
+    <ion-card>
+    <ion-card-header>
+      <ion-card-title>新着</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item>
+          <ion-label>2023年02月01日回覧</ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
 </ion-content>

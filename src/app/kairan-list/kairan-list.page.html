@@ -1,0 +1,18 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="tabs/tab2"></ion-back-button>
+    </ion-buttons>      
+    <ion-title>回覧リスト</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-card *ngFor="let card of cards" button (click)="gotoKairan(card.title)">
+    <ion-card-content>
+      <ion-card-title>{{card.title}}</ion-card-title>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>

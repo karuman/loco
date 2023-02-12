@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Platform } from '@ionic/angular';
+
 
 @Component({
   selector: 'app-tabs',
@@ -7,6 +9,12 @@ import { Component } from '@angular/core';
 })
 export class TabsPage {
 
-  constructor() {}
+  mobile_a : any = true;
+
+  constructor(public platform: Platform) {
+    if(platform.is("desktop")){
+      this.mobile_a=false;
+    }
+  }
 
 }
