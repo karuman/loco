@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-kairan',
@@ -11,6 +12,9 @@ export class KairanPage implements OnInit {
   click_mode =false;
   prev_card :any = null;
   
+  private queryParams: any;
+  count: number = 0;
+
   sliderZoomOpts = {
     allowSlidePrev: false,
     allowSlideNext: false,
@@ -21,7 +25,8 @@ export class KairanPage implements OnInit {
   
   img_url_list: any[] = [];
   
-  constructor() {
+  constructor(private route: ActivatedRoute) {
+  
     this.img_url_list.push('1SivTDEtuWwkqLEvZxCXTXtisR6tKmIrA');
     this.img_url_list.push('1ev1vuvLk2hA6c2fZI55aXUo9g5EICv4v')
     this.img_url_list.push('1JzqTXFrdWUhA7_DhQR_aG7kyHjC9m3Ls');
@@ -33,6 +38,8 @@ export class KairanPage implements OnInit {
    }
 
   ngOnInit() {
+    this.queryParams = this.route.snapshot.queryParams;
+    this.count = parseInt(this.queryParams.order);
   }
   
   clickImg(card:any){
