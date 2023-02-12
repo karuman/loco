@@ -7,7 +7,12 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content *ngIf="!mobile_a">
+  <div *ngFor="let img of img_url_list" class="image-card" #card style="text-align: center;">
+    <img src="http://drive.google.com/uc?export=view&id={{img}}" width="85%">
+  </div>
+</ion-content>
+<ion-content *ngIf="mobile_a">
   <ion-card *ngFor="let img of img_url_list" class="image-card" #card>
     <ion-slides class="image-slide" [options]="sliderZoomOpts" #zoomslides>
         <ion-slide>

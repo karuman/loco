@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Platform } from '@ionic/angular';
 
 @Component({
   selector: 'app-kairan',
@@ -22,10 +23,15 @@ export class KairanPage implements OnInit {
     },
   }
   
+  mobile_a : any = true;
+
   img_url_list: any[] = [];
   kairan : any[] =[];
   
-  constructor(private route: ActivatedRoute) {
+  constructor(private route: ActivatedRoute,public platform: Platform) {
+    if(platform.is("desktop")){
+      this.mobile_a=false;
+    }
     var img_list:any[]=[];
     img_list.push('1HjpsSpqw0iVE4sfvJGssqYXbUxQshIHl');
     img_list.push('1X7o1-6dXYLank7SKqHaXCEqmBr1P9EOB');
