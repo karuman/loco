@@ -1,20 +1,22 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input,OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Platform } from '@ionic/angular';
 import { kairan } from '../kairan';
 import { AngularFirestore ,AngularFirestoreCollection} from '@angular/fire/compat/firestore';
 import { parse } from 'path';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-kairan',
   templateUrl: './kairan.page.html',
   styleUrls: ['./kairan.page.scss'],
 })
-export class KairanPage implements OnInit {
+export class KairanPage implements OnInit, OnDestroy {
 
   click_mode =false;
   prev_card :any = null;
-  
+  private subscription!: Subscription ;
+
   private queryParams: any;
   count: string = '';
   year:string ='';
@@ -44,13 +46,17 @@ export class KairanPage implements OnInit {
     this.count = this.queryParams.order;
     this.year = this.queryParams.year;
 
-    this.firestore.collection(this.year,ref=> ref.where('note','==',this.count).orderBy('idx')).valueChanges().subscribe(kairans => {
+    this.subscription= this.firestore.collection(this.year,ref=> ref.where('note','==',this.count).orderBy('idx')).valueChanges().subscribe(kairans => {
 
       this.kairans = kairans as kairan[];
  
     });
   }
-  
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
+  }
+
   clickImg(card:any){
     if(this.click_mode){
       this.click_mode=false;
