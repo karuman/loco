@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Platform } from '@ionic/angular';
 import { kairan } from '../kairan';
 import { AngularFirestore ,AngularFirestoreCollection} from '@angular/fire/compat/firestore';
+import { parse } from 'path';
 
 @Component({
   selector: 'app-kairan',
@@ -15,8 +16,8 @@ export class KairanPage implements OnInit {
   prev_card :any = null;
   
   private queryParams: any;
-  count: number = 0;
-  year:any;
+  count: string = '';
+  year:string ='';
 
   sliderZoomOpts = {
     allowSlidePrev: false,
@@ -40,10 +41,10 @@ export class KairanPage implements OnInit {
 
   ngOnInit() {
     this.queryParams = this.route.snapshot.queryParams;
-    this.count = parseInt(this.queryParams.order);
-    this.year = parseInt(this.queryParams.year);
+    this.count = this.queryParams.order;
+    this.year = this.queryParams.year;
 
-    this.firestore.collection('2023k',ref=> ref.orderBy('idx')).valueChanges().subscribe(kairans => {
+    this.firestore.collection(this.year,ref=> ref.where('note','==',this.count).orderBy('idx')).valueChanges().subscribe(kairans => {
 
       this.kairans = kairans as kairan[];
  
