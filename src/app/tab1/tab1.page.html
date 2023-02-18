@@ -21,8 +21,8 @@
     </ion-card-header>
     <ion-card-content>
       <ion-list>
-        <ion-item  button (click)="gotoKairan()">
-          <ion-label>2023年02月01日回覧</ion-label>
+        <ion-item  button (click)="gotoKairan(latest_card.note,latest_card.year)">
+          <ion-label>{{latest_card.title}}回覧板</ion-label>
         </ion-item>
         <ion-item>
           

@@ -19,14 +19,14 @@ export class KairanListPage implements OnInit {
   ngOnInit() {
 //    this.cards = this.kairanService.getKairanLst();
 //    this.cards =  this.firestore.collection('kairan');
-    this.firestore.collection('kairan',ref=> ref.orderBy('note','desc')).valueChanges().subscribe(cards => {
+    this.firestore.collection('kairan_list',ref=> ref.orderBy('note','desc')).valueChanges().subscribe(cards => {
 
       this.cards = cards as kairanLst[];
  
     });
   }
-  gotoKairan(opt:any){
-    this.navCtrl.navigateForward(["kairan"],{ queryParams: { order: opt } });
+  gotoKairan(opt:any,opt1:any){
+    this.navCtrl.navigateForward(["kairan"],{ queryParams: { order: opt,year:opt1 } });
   }
 
 
