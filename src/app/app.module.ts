@@ -21,7 +21,7 @@ import { environment } from '../environments/environment';
     BrowserModule,
             IonicModule.forRoot(),
             AppRoutingModule,
-            AngularFireModule.initializeApp(environment.firebas),
+            AngularFireModule.initializeApp(environment.firebase),
             AngularFirestoreModule,
             ServiceWorkerModule.register('ngsw-worker.js', {
               enabled: !isDevMode(),
